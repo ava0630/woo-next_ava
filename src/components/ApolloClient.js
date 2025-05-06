@@ -65,9 +65,7 @@ export const afterware = new ApolloLink( ( operation, forward ) => {
 
 // Apollo GraphQL client.
 const client = new ApolloClient({
-	link:httpLink,
-	}) ) ),
-	cache: new InMemoryCache(),
+    link: httpLink, 
+    cache: new InMemoryCache() 
 });
-
 export default client;
