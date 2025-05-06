@@ -1,4 +1,5 @@
 const path = require('path');
+const allowedImageWordPressDomain = process.env.WORDPRESS_IMAGE_DOMAIN || 'glodery.com';
 const nextConfig = {
   reactStrictMode: true,
     sassOptions: {
@@ -10,7 +11,7 @@ const nextConfig = {
      * @see https://nextjs.org/docs/basic-features/image-optimization#domains
      */
     images: {
-        domains: [ allowedImageWordPressDomain, 'via.placeholder.com' ],
+        domains: [allowedImageWordPressDomain, 'via.placeholder.com' ],
     },
 };
 module.exports = nextConfig
