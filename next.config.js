@@ -12,3 +12,4 @@ const nextConfig = {
         domains: [ allowedImageWordPressDomain, 'via.placeholder.com' ],
     },
 };
+module.exports = nextConfig
