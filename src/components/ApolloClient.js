@@ -1,4 +1,5 @@
 //import fetch from 'node-fetch';
+import fetch from 'cross-fetch';
 
 import { ApolloClient, ApolloLink, InMemoryCache, createHttpLink } from "@apollo/client";
 
