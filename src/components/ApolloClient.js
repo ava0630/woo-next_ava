@@ -64,10 +64,12 @@ export const afterware = new ApolloLink( ( operation, forward ) => {
 } );
 
 // Apollo GraphQL client.
-const httpLink = createHttpLink({ // 或者 new HttpLink({ ... })
+const httpLink = createHttpLink({
   uri: process.env.NEXT_PUBLIC_WORDPRESS_API_URL,
+}); 
 const client = new ApolloClient({
     link: httpLink, 
     cache: new InMemoryCache() 
 });
+
 export default client;
