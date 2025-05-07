@@ -17,10 +17,11 @@ import {DEFAULT_IMG_URL} from "../constants/urls";
 const Image = ( props ) => {
     const {altText, title, width, height, sourceUrl, className, layout, objectFit, containerClassNames, showDefault, defaultImgUrl, ...rest} = props;
 
-    let finalSourceUrl = sourceUrl;
-    if (!finalSourceUrl && !showDefault) {
-        finalSourceUrl = defaultImgUrl || DEFAULT_IMG_URL;
-    }
+    const getSourceUrl = (sourceUrl, showDefault, defaultImgUrl) => {
+        return (!sourceUrl && !showDefault)
+            ? (defaultImgUrl || DEFAULT_IMG_URL)
+            : sourceUrl;
+    };
 
     /**
      * If we use layout = fill then, width and height of the image cannot be used.
