@@ -20,9 +20,14 @@ const Product = ( props ) => {
 							width="308"
 							height="308"
 							loading="lazy"
-							sourceUrl={ product?.image?.sourceUrl ?? '' }
-							defaultImgUrl={DEFAULT_PRODUCT_HOME_IMG_URL}
-							altText={product?.image?.altText ?? product?.slug}
+							src={ product?.image?.sourceUrl ?? DEFAULT_PRODUCT_HOME_IMG_URL }
+							alt={product?.image?.altText ?? product?.slug}
+							onError={(e) => {
+								e.target.src = DEFAULT_PRODUCT_HOME_IMG_URL;
+							}}	
+							//sourceUrl={ product?.image?.sourceUrl ?? '' }
+							//defaultImgUrl={DEFAULT_PRODUCT_HOME_IMG_URL}
+							//altText={product?.image?.altText ?? product?.slug}
 						/>
 					</a>
 				</Link>
