@@ -3,7 +3,7 @@
   "version": "2.2.0",
   "private": true,
   "scripts": {
-    "prebuild": "npx browserslist@latest --update-db"
+    "prebuild": "npx browserslist@latest --update-db",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
