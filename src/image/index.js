@@ -18,7 +18,7 @@ const Image = ( props ) => {
     const {altText, title, width, height, sourceUrl, className, layout, objectFit, containerClassNames, showDefault, defaultImgUrl, ...rest} = props;
 
     if ( ! sourceUrl && ! showDefault ) {
-        return null;
+        sourceUrl = defaultImgUrl || DEFAULT_IMG_URL;
     }
 
     /**
