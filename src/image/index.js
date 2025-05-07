@@ -30,7 +30,7 @@ const Image = ( props ) => {
     if ( 'fill' === layout ) {
         const attributes = {
             alt: altText || title,
-            src: sourceUrl ? sourceUrl : ( defaultImgUrl || DEFAULT_IMG_URL )
+            src: sourceUrl || ( showDefault ? ( defaultImgUrl || DEFAULT_IMG_URL ) : '' )
             layout: 'fill',
             className: cx( 'object-cover', className ),
             ...rest
