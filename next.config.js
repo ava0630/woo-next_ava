@@ -1,5 +1,5 @@
 const path = require('path');
-const allowedImageWordPressDomain = process.env.WORDPRESS_IMAGE_DOMAIN || 'glodery.com';
+const allowedImageWordPressDomain = process.env.WORDPRESS_IMAGE_DOMAIN || 'https://glodery.com';
 const nextConfig = {
   reactStrictMode: true,
     sassOptions: {
