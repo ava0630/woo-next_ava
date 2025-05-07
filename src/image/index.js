@@ -52,7 +52,8 @@ const Image = ( props ) => {
             className,
             ...rest
         };
-        return <Img {...attributes} />;
+        return <Img {...attributes} unoptimized={true} />;
+        //return <Img {...attributes} />;
     }
 };
 
