@@ -33,6 +33,7 @@
   },
   "devDependencies": {
     "install": "^0.13.0",
+    "postcss": "^8.4.38",
     "postcss-flexbugs-fixes": "^5.0.1",
     "postcss-import": "^13.0.0",
     "postcss-preset-env": "^6.7.0",
