@@ -4,7 +4,7 @@ const Footer = () => (
 	<div className="footer bg-gray-800 p-6 text-white">
 		<div className="container mx-auto">
 			<div className="footer-text flex-none md:flex items-center justify-between">
-				<p>© Codeytek Academy 2020</p>
+				<p>© Codeytek Academy 2025</p>
 				<p className="text-gray">Learn the latest tech skills</p>
 				<span className="text-gray">Follow on social links to support the work</span>
 			</div>
