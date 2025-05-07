@@ -32,8 +32,8 @@
     "validator": "^13.1.17"
   },
   "devDependencies": {
-    "install": "^0.13.0",
     "postcss-import": "^16.0.0",
+    "install": "^0.13.0",
     "postcss": "^8.4.38",
     "postcss-flexbugs-fixes": "^5.0.0",
     "postcss-preset-env": "^9.0.0",
