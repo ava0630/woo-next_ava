@@ -17,8 +17,9 @@ import {DEFAULT_IMG_URL} from "../constants/urls";
 const Image = ( props ) => {
     const {altText, title, width, height, sourceUrl, className, layout, objectFit, containerClassNames, showDefault, defaultImgUrl, ...rest} = props;
 
-    if ( ! sourceUrl && ! showDefault ) {
-        sourceUrl = defaultImgUrl || DEFAULT_IMG_URL;
+    let finalSourceUrl = sourceUrl;
+    if (!finalSourceUrl && !showDefault) {
+        finalSourceUrl = defaultImgUrl || DEFAULT_IMG_URL;
     }
 
     /**
