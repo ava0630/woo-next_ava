@@ -59,8 +59,8 @@ const ThankYouContent = () => {
                             </tr>
                             </tbody>
                         </table>
-                        <Link href="/">
-                            <a className="bg-purple-600 text-white px-5 py-3 rounded-sm w-auto">Shop more</a>
+                        <Link href="/" className="bg-purple-600 text-white px-5 py-3 rounded-sm w-auto">
+                            Shop more
                         </Link>
                     </>
                 )}

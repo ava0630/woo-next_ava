@@ -15,7 +15,7 @@ import {DEFAULT_IMG_URL} from "../constants/urls";
  * @return {jsx}
  */
 const Image = ( props ) => {
-    const {altText, title, width, height, sourceUrl, className, layout, objectFit, containerClassNames, showDefault, defaultImgUrl, ...rest} = props;
+    const {altText, title, width, height, sourceUrl, className, layout, objectFit, containerClassNames, showDefault, defaultImgUrl, sizes, ...rest} = props;
 
     const getSourceUrl = (sourceUrl, showDefault, defaultImgUrl) => {
         return (!sourceUrl && !showDefault)
@@ -35,6 +35,7 @@ const Image = ( props ) => {
             src: sourceUrl || ( showDefault ? ( defaultImgUrl || DEFAULT_IMG_URL ) : '' ),
             layout: 'fill',
             className: cx( 'object-cover', className ),
+            sizes: sizes, // Pass sizes here
             ...rest
         };
 
@@ -65,7 +66,8 @@ Image.propTypes = {
     showDefault: PropTypes.bool,
     defaultImgUrl: PropTypes.string,
     containerClassName: PropTypes.string,
-    className: PropTypes.string
+    className: PropTypes.string,
+    sizes: PropTypes.string, // Add sizes to propTypes
 };
 
 Image.defaultProps = {
@@ -76,6 +78,7 @@ Image.defaultProps = {
     defaultImgUrl: '',
     containerClassNames: '',
     className: 'post__image',
+    sizes: '', // Add default value for sizes
 };
 
 export default Image;

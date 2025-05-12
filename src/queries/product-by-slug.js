@@ -32,6 +32,20 @@ export const PRODUCT_BY_SLUG_QUERY = gql` query Product($slug: ID!) {
 		price
 		id
 		regularPrice
+        variations {
+          nodes {
+            databaseId
+            price
+            regularPrice
+            stockStatus
+            attributes {
+              nodes {
+                attributeId
+                value # This value is the term slug
+              }
+            }
+          }
+        }
 	  }
 	  ... on ExternalProduct {
 		price

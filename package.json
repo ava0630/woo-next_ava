@@ -9,7 +9,7 @@
     "svg": "svgr -d src/components/icons src/components/icons/svgs"
   },
   "dependencies": {
-    "@apollo/client": "^3.3.16",
+    "@apollo/client": "^3.13.8",
     "@stripe/stripe-js": "^1.14.0",
     "@svgr/cli": "^5.5.0",
     "@woocommerce/woocommerce-rest-api": "^1.0.1",

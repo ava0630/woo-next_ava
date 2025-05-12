@@ -14,7 +14,7 @@ export const AppProvider = ( props ) => {
 		if ( process.browser ) {
 
 			let cartData = localStorage.getItem( 'woo-next-cart' );
-			cartData = null !== cartData ? JSON.parse( cartData ) : '';
+			cartData = null !== cartData ? JSON.parse( cartData ) : ''
 			setCart( cartData );
 
 		}

@@ -1,5 +1,5 @@
 const path = require('path');
-const allowedImageWordPressDomain = process.env.WORDPRESS_IMAGE_DOMAIN || 'https://glodery.com';
+const allowedImageWordPressDomain = process.env.WORDPRESS_IMAGE_DOMAIN ? process.env.WORDPRESS_IMAGE_DOMAIN.replace(/^https?:\/\//, '') : 'glodery.com';
 const nextConfig = {
   reactStrictMode: true,
     sassOptions: {
@@ -11,7 +11,28 @@ const nextConfig = {
      * @see https://nextjs.org/docs/basic-features/image-optimization#domains
      */
     images: {
-        domains: [allowedImageWordPressDomain, 'via.placeholder.com' ],
+        remotePatterns: [
+            {
+                protocol: 'http',
+                hostname: allowedImageWordPressDomain,
+                pathname: '/wp-content/uploads/**',
+            },
+            {
+                protocol: 'https',
+                hostname: allowedImageWordPressDomain,
+                pathname: '/wp-content/uploads/**',
+            },
+            {
+                protocol: 'http',
+                hostname: 'via.placeholder.com',
+                pathname: '/images/**', // Assuming a common path for placeholder images
+            },
+            {
+                protocol: 'https',
+                hostname: 'via.placeholder.com',
+                pathname: '/images/**', // Assuming a common path for placeholder images
+            },
+        ],
     },
 };
 module.exports = nextConfig

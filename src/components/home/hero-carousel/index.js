@@ -56,16 +56,15 @@ const HeroCarousel = ({heroCarousel}) => {
     }, [])
 
     return (
-        <div className="banner flex flex-col sm:flex-row justify-between overflow-hidden">
-            <div className="banner-img sm:w-8/12">
+        <div className="banner container mx-auto flex flex-col sm:flex-row justify-center items-center overflow-hidden"> {/* Added container mx-auto, changed justify-between to justify-center items-center */}
+            <div className="banner-img sm:w-8/12 h-96 relative"> {/* Added h-96 and relative */}
                 {
                     heroCarousel.map( ( item, index ) => {
                         const opacity = ( activeIndex === index || 1 === heroCarousel.length ) ? 'opacity-100' : 'opacity-0';
                         return (
-                            <div key={item?.id}className={`${opacity} banner-img-container absolute top-0 left-0`}>
+                            <div key={item?.id}className={`${opacity} banner-img-container absolute top-0 left-0 w-full h-full`}> {/* Added w-full and h-full */}
                                 <img
-                                    src={item?.image?.sourceUrl} srcSet={item?.image?.srcSet} loading="lazy"
-                                />
+                                    src={item?.image?.sourceUrl} srcSet={item?.image?.srcSet} loading="lazy" className="w-full h-full object-cover"/> {/* Added w-full, h-full, and object-cover */}
                             </div>
                         )
                     })
@@ -82,8 +81,8 @@ const HeroCarousel = ({heroCarousel}) => {
             <div className="banner-content pt-10 sm:pt-0 px-10 sm:w-4/12">
                 <h2 className="banner-content__title text-base md:text-4xl uppercase">{heroCarousel[activeIndex]?.name}</h2>
                 <p className="banner-content__description text-base md:text-2xl text-gray-700">{heroCarousel[activeIndex]?.description}</p>
-                <Link href={`/category/${heroCarousel[activeIndex]?.slug}/`}>
-                    <a className="banner-content__link text-gray-700">+ Explore</a>
+                <Link href={`/category/${heroCarousel[activeIndex]?.slug}/`} className="banner-content__link text-gray-700">
+                    + Explore
                 </Link>
             </div>
         </div>

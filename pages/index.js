@@ -9,6 +9,8 @@ export default function Home (props) {
 
 	const { products, productCategories, heroCarousel } = props || {};
 
+	console.log('Home component props:', props);
+
 	return (
 			<Layout>
 				{/*Hero Carousel*/}
@@ -38,11 +40,13 @@ export async function getStaticProps () {
 		query: PRODUCTS_AND_CATEGORIES_QUERY,
 	} );
 
+	console.log('getStaticProps data?.heroCarousel:', data?.heroCarousel);
+
 	return {
 		props: {
 			productCategories: data?.productCategories?.nodes ? data.productCategories.nodes : [],
 			products: data?.products?.nodes ? data.products.nodes : [],
-			heroCarousel: data?.heroCarousel?.nodes[0]?.children?.nodes ? data.heroCarousel.nodes[0].children.nodes : []
+			heroCarousel: data?.heroCarousel?.nodes?.[0]?.children?.nodes || []
 		},
 		revalidate: 1
 	}
