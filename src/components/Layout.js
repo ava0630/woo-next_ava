@@ -1,20 +1,31 @@
+import { useEffect } from "react";
 import Head from "next/head";
 import { AppProvider } from "./context/AppContext";
 import Header from "./Header";
 import Footer from "./Footer";
 import client from "./ApolloClient";
-import Router from "next/router";
+import { useRouter } from 'next/router';
 import NProgress from "nprogress";
 import { ApolloProvider } from "@apollo/client";
-import { useRouter } from 'next/router';
-
-Router.events.on("routeChangeStart", () => NProgress.start());
-Router.events.on("routeChangeComplete", () => NProgress.done());
-Router.events.on("routeChangeError", () => NProgress.done());
 
 const Layout = (props) => {
   const router = useRouter();
   const isProductPage = router.pathname.includes('/product/');
+
+  useEffect(() => {
+    const handleRouteStart = () => NProgress.start();
+    const handleRouteDone = () => NProgress.done();
+
+    router.events.on("routeChangeStart", handleRouteStart);
+    router.events.on("routeChangeComplete", handleRouteDone);
+    router.events.on("routeChangeError", handleRouteDone);
+
+    return () => {
+      router.events.off("routeChangeStart", handleRouteStart);
+      router.events.off("routeChangeComplete", handleRouteDone);
+      router.events.off("routeChangeError", handleRouteDone);
+    };
+  }, [router.events]);
 
   return (
     <AppProvider>

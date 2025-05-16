@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 基础样式 */
+body {
+  background-color: #f9fafb;
+  color: #111827;
+}
+
+/* 组件样式 */
+@layer components {
+  .btn {
+    @apply px-4 py-2 rounded-md transition duration-200;
+  }
+  .btn-primary {
+    @apply bg-blue-600 text-white hover:bg-blue-700;
+  }
+}
+
+/* 工具类 */
+@layer utilities {
+  .text-shadow {
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+  }
+}
+
+/* NProgress样式 */
+#nprogress {
+  pointer-events: none;
+}
+
+#nprogress .bar {
+  background: #3b82f6;
+  position: fixed;
+  z-index: 1031;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+} 

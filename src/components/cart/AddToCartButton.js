@@ -87,9 +87,9 @@ const AddToCart = (props) => {
                 </button>
             }
             {showViewCart ? (
-                <Link href="/cart">
+                <Link href="/cart" className="inline-block">
                     <button
-                        className="px-3 py-1 rounded-sm text-sm border-solid border border-current inline-block hover:bg-purple-600 hover:text-white hover:border-purple-600">View
+                        className="px-3 py-1 rounded-sm text-sm border-solid border border-current hover:bg-purple-600 hover:text-white hover:border-purple-600">View
                         Cart
                     </button>
                 </Link>

@@ -11,9 +11,8 @@ const Product = ( props ) => {
 		// @TODO Need to handle Group products differently.
 		undefined !== product && 'GroupProduct' !== product.__typename ? (
 			<div className="product mb-5">
-
-
-				<Link href={ `/product/${ product?.slug }`} >
+				<Link href={ `/product/${ product?.slug }`}>
+					<div className="block">
 						<Image
 							className="object-cover bg-gray-100"
 							width="308"
@@ -28,6 +27,7 @@ const Product = ( props ) => {
 							//defaultImgUrl={DEFAULT_PRODUCT_HOME_IMG_URL}
 							//altText={product?.image?.altText ?? product?.slug}
 						/>
+					</div>
 				</Link>
 				<div className="product-info">
 					<h3 className="product-title mt-3 font-medium text-gray-800">
@@ -37,7 +37,6 @@ const Product = ( props ) => {
 					<Price salesPrice={product?.price} regularPrice={product?.regularPrice}/>
 					<AddToCartButton product={ product }/>
 				</div>
-
 			</div>
 		) : (
 			''
