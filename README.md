@@ -7,6 +7,9 @@
 
 > * This is a React WooCommerce theme, built with Next JS, Webpack, Babel, Node, GraphQl
 
+## 版本节点标记
+- 001_NextJS14_Upgrade: Next.js 14升级完成，修复Link组件用法问题（2024年7月16日）
+
 📹 [Full Course Video Tutorial](https://codeytek.com/course/woocommerce-with-react-course/)
 
 ## Important Note ⭐:
