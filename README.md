@@ -10,6 +10,37 @@
 ## 版本节点标记
 - 001_NextJS14_Upgrade: Next.js 14升级完成，修复Link组件用法问题（2024年7月16日）
 
+## 组件升级与新增情况
+
+### 框架升级
+- **Next.js**: 从v10.2.0升级到v14.1.0
+- **React**: 从v17升级到v18.2.0
+- **Tailwind CSS**: 升级到v3.x版本并更新配置
+
+### 组件升级
+- **Link组件**: 修复所有Link组件的用法，适配Next.js 14规范
+- **ApolloClient**: 更新到最新版本，优化GraphQL查询处理
+- **HeroCarousel**: 修复轮播组件，确保在新版本框架下正常显示
+
+### 新增组件
+- **ProfileDropdown**: 新增用户个人资料下拉菜单组件
+  - 功能：显示用户登录/注册、个人资料等选项
+  - 支持移动端自适应
+  - 支持暗黑模式切换
+  - 点击外部区域自动关闭
+
+### 导航菜单改进
+- 重构导航菜单，增加移动端响应式支持
+- 添加侧边栏折叠功能
+- 优化菜单项布局和间距
+- 增强用户交互体验
+
+### UI/UX优化
+- 统一使用Tailwind系统字体，无额外字体加载
+- 优化移动端显示效果
+- 改进组件间距与对齐方式
+- 添加平滑过渡动画效果
+
 📹 [Full Course Video Tutorial](https://codeytek.com/course/woocommerce-with-react-course/)
 
 ## Important Note ⭐:
