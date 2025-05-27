@@ -1,5 +1,6 @@
 body {
   width: 100%;
+  scroll-behavior: smooth;
 }
 
 .product {
@@ -10,6 +11,7 @@ body {
 
 .header {
   box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.3s ease;
 }
 
 .banner {
