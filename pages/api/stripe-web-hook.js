@@ -1,6 +1,6 @@
 import { buffer } from "micro";
+import WooCommerceAPI from '../../src/utils/woocommerce-api';
 const Stripe = require('stripe');
-const WooCommerceRestApi = require("@woocommerce/woocommerce-rest-api").default;
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
     apiVersion: '2020-08-27'
@@ -13,7 +13,7 @@ export const config = {
     },
 };
 
-const api = new WooCommerceRestApi({
+const api = new WooCommerceAPI({
     url: process.env.NEXT_PUBLIC_WORDPRESS_URL,
     consumerKey: process.env.WC_CONSUMER_KEY,
     consumerSecret: process.env.WC_CONSUMER_SECRET,

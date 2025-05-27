@@ -1,6 +1,5 @@
 import client from "../components/ApolloClient";
 import {isEmpty, isArray} from 'lodash';
-import { createCheckoutSession } from 'next-stripe/client' // @see https://github.com/ynnoj/next-stripe
 import { loadStripe } from "@stripe/stripe-js";
 
 import GET_STATES from "../queries/get-states";
@@ -99,7 +98,10 @@ const createCheckoutSessionAndRedirect = async ( products, input, orderId ) => {
         payment_method_types: ['card'],
         mode: 'payment'
     }
-    const session = await createCheckoutSession(sessionData)
+    
+    // 使用自定义的安全 API 端点
+    const session = await createCheckoutSession(sessionData);
+    
     try {
         const stripe = await loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY);
         if (stripe) {
@@ -107,6 +109,32 @@ const createCheckoutSessionAndRedirect = async ( products, input, orderId ) => {
         }
     } catch (error) {
         console.log( error );
+    }
+}
+
+/**
+ * 创建 Stripe Checkout Session
+ * 替代 next-stripe 的安全实现
+ */
+const createCheckoutSession = async (sessionData) => {
+    try {
+        const response = await fetch('/api/stripe/create-checkout-session', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(sessionData),
+        });
+
+        if (!response.ok) {
+            const errorData = await response.json();
+            throw new Error(errorData.error || 'Failed to create checkout session');
+        }
+
+        return await response.json();
+    } catch (error) {
+        console.error('Error creating checkout session:', error);
+        throw error;
     }
 }
 

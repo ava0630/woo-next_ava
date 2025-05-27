@@ -1,0 +1,9 @@
+node_modules\
+.git\
+.next\
+20250526002backup\
+.env.local
+.env
+*.log
+.DS_Store
+Thumbs.db 

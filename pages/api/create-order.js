@@ -1,7 +1,7 @@
-const WooCommerceRestApi = require("@woocommerce/woocommerce-rest-api").default;
+import WooCommerceAPI from '../../src/utils/woocommerce-api';
 import {isEmpty} from 'lodash'
 
-const api = new WooCommerceRestApi({
+const api = new WooCommerceAPI({
     url: process.env.NEXT_PUBLIC_WORDPRESS_URL,
     consumerKey: process.env.WC_CONSUMER_KEY,
     consumerSecret: process.env.WC_CONSUMER_SECRET,
