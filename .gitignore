@@ -10,3 +10,7 @@ dist/
 .next
 .env
 .now
+
+# Backup folders
+*backup/
+20250526*backup/
