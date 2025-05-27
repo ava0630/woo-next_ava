@@ -1,11 +1,12 @@
-# [WooCommerce Nextjs React Theme](https://woo-next-imranhsayed.vercel.app/) :rocket:
-[![Project Status: Active.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
-![Stars](https://img.shields.io/github/stars/imranhsayed/woo-next?label=%E2%AD%90%20Stars)
-![Forks](https://img.shields.io/github/forks/imranhsayed/woo-next?color=%23ff69b4)
-![Contributors](https://img.shields.io/github/contributors/imranhsayed/woo-next?color=blue)
-![Follow](https://img.shields.io/github/followers/imranhsayed?label=Please%20follow%20%20to%20support%20my%20work%20%F0%9F%99%8F&style=social)
+# 🛒 WooCommerce Next.js E-commerce Platform
 
-> * This is a React WooCommerce theme, built with Next JS, Webpack, Babel, Node, GraphQl
+[![Project Status: Production Ready](https://img.shields.io/badge/status-production%20ready-brightgreen.svg)](https://github.com/user/woo-next_ava)
+[![Security: 0 Vulnerabilities](https://img.shields.io/badge/security-0%20vulnerabilities-success.svg)](./SECURITY_AUDIT_REPORT.md)
+[![Next.js: 14.2.28](https://img.shields.io/badge/Next.js-14.2.28-black.svg)](https://nextjs.org/)
+[![React: 18.2.0](https://img.shields.io/badge/React-18.2.0-blue.svg)](https://reactjs.org/)
+[![Tailwind: 3.4.15](https://img.shields.io/badge/Tailwind-3.4.15-38bdf8.svg)](https://tailwindcss.com/)
+
+> 🚀 一个现代化、安全、高性能的 WooCommerce + Next.js 电商平台，具备完整的安全强化和性能优化。
 
 📹 [Full Course Video Tutorial](https://codeytek.com/course/woocommerce-with-react-course/)
 

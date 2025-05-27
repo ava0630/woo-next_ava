@@ -203,23 +203,26 @@ npm audit fix
 
 ## ⚠️ 当前已知问题
 
-### Next.js Image 组件警告 (非安全问题)
+### ✅ Next.js Image 组件现代化 (已解决)
 **问题描述**: 项目中使用了过时的 Next.js Image 组件 `layout` 属性
-**影响范围**: 图片显示组件
-**风险等级**: 🟡 **低** (功能性警告，非安全漏洞)
-**错误信息**:
-```
-Image with src "..." has legacy prop "layout". 
-Did you forget to run the codemod?
-Read more: https://nextjs.org/docs/messages/next-image-upgrade-to-13
-```
+**解决方案**: 已迁移到 Next.js 13+ 的现代语法
+**修复状态**: ✅ **已完成** (2025年1月27日)
 
-**修复建议**:
-1. 运行 Next.js 提供的 codemod 工具
-2. 手动更新 Image 组件属性
-3. 使用新的 `fill`, `width`, `height` 属性替代 `layout`
+**修复内容**:
+1. ✅ 更新核心 Image 组件 (`src/image/index.js`)
+   - 替换 `layout` 属性为 `fill` 布尔属性
+   - 更新 PropTypes 定义
+   - 改进容器样式处理
 
-**修复优先级**: 低 (不影响安全性和功能)
+2. ✅ 更新使用组件 (`ParentCategoryBlock.js`)
+   - 使用 `fill={true}` 替代 `layout="fill"`
+   - 添加明确的宽度和高度属性
+
+**修复效果**:
+- 🟢 完全消除警告信息
+- 🔧 使用 Next.js 13+ 推荐语法
+- 🚀 为 Next.js 15 升级做好准备
+- ✅ 保持所有功能完整
 4. **PostCSS 生态清理**: 移除过时的 precss 包
 5. **SVG 处理升级**: 升级 @svgr/cli 到安全版本
 
