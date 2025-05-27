@@ -15,7 +15,7 @@ import {DEFAULT_IMG_URL} from "../constants/urls";
  * @return {jsx}
  */
 const Image = ( props ) => {
-    const {altText, title, width, height, sourceUrl, className, layout, objectFit, containerClassNames, showDefault, defaultImgUrl, sizes, ...rest} = props;
+    const {altText, title, width, height, sourceUrl, className, fill, objectFit, containerClassNames, showDefault, defaultImgUrl, sizes, ...rest} = props;
 
     const getSourceUrl = (sourceUrl, showDefault, defaultImgUrl) => {
         return (!sourceUrl && !showDefault)
@@ -24,23 +24,23 @@ const Image = ( props ) => {
     };
 
     /**
-     * If we use layout = fill then, width and height of the image cannot be used.
+     * If we use fill = true then, width and height of the image cannot be used.
      * and the image fills on the entire width and the height of its parent container.
      * That's we need to wrap our image in a container and give it a height and width.
      * Notice that in this case, the given height and width is being used for container and not img.
      */
-    if ( 'fill' === layout ) {
+    if ( fill ) {
         const attributes = {
             alt: altText || title,
             src: sourceUrl || ( showDefault ? ( defaultImgUrl || DEFAULT_IMG_URL ) : '' ),
-            layout: 'fill',
+            fill: true,
             className: cx( 'object-cover', className ),
             sizes: sizes, // Pass sizes here
             ...rest
         };
 
         return (
-            <div className={cx( 'relative', containerClassNames ) }>
+            <div className={cx( 'relative', containerClassNames )} style={{ width: width, height: height }}>
                 <Img {...attributes}/>
             </div>
         );
@@ -62,7 +62,9 @@ Image.propTypes = {
     altText: PropTypes.string,
     title: PropTypes.string,
     sourceUrl: PropTypes.string,
-    layout: PropTypes.string,
+    fill: PropTypes.bool, // Updated from layout to fill
+    width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    height: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     showDefault: PropTypes.bool,
     defaultImgUrl: PropTypes.string,
     containerClassName: PropTypes.string,
@@ -74,6 +76,7 @@ Image.defaultProps = {
     altText: '',
     title: '',
     sourceUrl: '',
+    fill: false, // Updated default value
     showDefault: true,
     defaultImgUrl: '',
     containerClassNames: '',
