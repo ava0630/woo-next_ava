@@ -198,6 +198,28 @@ npm audit fix
 1. **Axios 安全升级**: 从 0.21.1 升级到 1.7.0+
 2. **WooCommerce API 重构**: 创建安全的自定义 API 客户端
 3. **Stripe 集成重构**: 替换 next-stripe 为自定义安全实现
+4. **SVG 处理升级**: 升级 @svgr/cli 到 8.1.0+
+5. **PostCSS 清理**: 移除有漏洞的 precss 包
+
+## ⚠️ 当前已知问题
+
+### Next.js Image 组件警告 (非安全问题)
+**问题描述**: 项目中使用了过时的 Next.js Image 组件 `layout` 属性
+**影响范围**: 图片显示组件
+**风险等级**: 🟡 **低** (功能性警告，非安全漏洞)
+**错误信息**:
+```
+Image with src "..." has legacy prop "layout". 
+Did you forget to run the codemod?
+Read more: https://nextjs.org/docs/messages/next-image-upgrade-to-13
+```
+
+**修复建议**:
+1. 运行 Next.js 提供的 codemod 工具
+2. 手动更新 Image 组件属性
+3. 使用新的 `fill`, `width`, `height` 属性替代 `layout`
+
+**修复优先级**: 低 (不影响安全性和功能)
 4. **PostCSS 生态清理**: 移除过时的 precss 包
 5. **SVG 处理升级**: 升级 @svgr/cli 到安全版本
 
